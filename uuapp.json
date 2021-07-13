@@ -1,0 +1,80 @@
+{
+  "product": "uu_cat_maing01",
+  "version": "0.1.0-alpha.1",
+  "license": "License Commercial",
+  "description": {
+    "en": "",
+    "cs": ""
+  },
+  "devkit": {
+    "development": {
+      "appBoxLocationUri": "ues:UCL-BT:UDVH_TU",
+      "appDeploymentUri": null
+    }
+  },
+  "uu_cat_maing01-hi": {
+    "componentList": [
+      {
+        "code": "UuCat.Routes.Catlist",
+        "name": "Catlist",
+        "tagList": [
+          "UuCat",
+          "Routes",
+          "Catlist"
+        ],
+        "docCode": "UuCatRoutesCatlist",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuCat.Routes.Catlist />"
+      },
+      {
+        "code": "UuCat.Bricks.CatItem",
+        "name": "CatItem",
+        "tagList": [
+          "UuCat",
+          "Bricks",
+          "CatItem"
+        ],
+        "docCode": "UuCatBricksCatItem",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuCat.Bricks.CatItem />"
+      },
+      {
+        "code": "UuCat.Router.CatDetails",
+        "name": "CatDetails",
+        "tagList": [
+          "UuCat",
+          "Router",
+          "CatDetails"
+        ],
+        "docCode": "UuCatRouterCatDetails",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuCat.Router.CatDetails />"
+      },
+      {
+        "code": "UuCat.Routes.CatDetails",
+        "name": "CatDetails",
+        "tagList": [
+          "UuCat",
+          "Routes",
+          "CatDetails"
+        ],
+        "docCode": "UuCatRoutesCatDetails",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuCat.Routes.CatDetails />"
+      }
+    ]
+  },
+  "uu_cat_maing01-server": {}
+}
