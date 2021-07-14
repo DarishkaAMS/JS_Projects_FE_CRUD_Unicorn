@@ -1,7 +1,7 @@
 //@@viewOn:imports
 import UU5 from "uu5g04";
 import "uu5g04-forms";
-import { createComponent } from "uu5g04-hooks";
+import { createComponent,createVisualComponentWithRef, useRef, useImperativeHandle } from "uu5g04-hooks";
 import Config from "./config/config";
 import { useCatDetail } from "../context/cat-detail-context";
 //@@viewOff:imports
@@ -32,10 +32,18 @@ export const CatDetailReady = createComponent({
 
   render(props) {
     //@@viewOn:private
-    const { data, handlerMap } = useCatDetail();
 
+    const onCancel = () => {
+      UU5.Environment.setRoute("CatList");
+    };
+
+    const { data, handlerMap } = useCatDetail();
     const handleUpdate = async ({ values, component }) => {
-      await handlerMap.update({ ...values, id: data.dtoOut.id });
+      try {
+        await handlerMap.updateItem({ ...values, id: data.dtoOut.id });
+      } finally {
+        UU5.Environment.setRoute("CatList");
+      }
     };
     //@@viewOff:private
 
@@ -64,7 +72,7 @@ export const CatDetailReady = createComponent({
           </UU5.Forms.ContextForm>
           <UU5.Forms.ContextControls
             align={"center"}
-            buttonSubmitProps={{ content: "Edit" }}
+            buttonSubmitProps={{ content: "Update" }}
             buttonCancelProps={{ content: "Cancel" }}
           />
         </UU5.Forms.ContextSection>

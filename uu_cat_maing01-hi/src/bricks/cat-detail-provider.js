@@ -30,12 +30,13 @@ export const CatDetailProvider = createComponent({
       handlerMap: {
         load: Calls.getCat,
         createItem: Calls.createCat,
+        updateItem: Calls.updateCat,
+        deleteItem: Calls.deleteCat,
       },
       initialDtoIn: {
         id: props.id
       }
     });
-    // const { state, data, newData, errorData, pendingData, handlerMap } = dataDetailResult;
     //@@viewOff:private
 
     //@@viewOn:interface

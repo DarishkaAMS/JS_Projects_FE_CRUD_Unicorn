@@ -48,29 +48,6 @@ export const CatList = createVisualComponent({
         <CatListProvider>
           <CatListReady />
         </CatListProvider>
-
-        {/*<CatListProvider>*/}
-        {/*  <CatListContext.Consumer>*/}
-        {/*    {({ state, data = {}, newData, errorData, pendingData, handlerMap }) => {*/}
-        {/*      console.log("data", data);*/}
-
-        {/*      return (*/}
-        {/*        data && (*/}
-        {/*          <Uu5Tiles.Grid*/}
-        {/*            data={data}*/}
-        {/*            tileHeight="auto"*/}
-        {/*            tileMinWidth={200}*/}
-        {/*            tileMaxWidth={400}*/}
-        {/*            tileSpacing={8}*/}
-        {/*            rowSpacing={8}*/}
-        {/*          >*/}
-        {/*            {CatItem}*/}
-        {/*          </Uu5Tiles.Grid>*/}
-        {/*        )*/}
-        {/*      );*/}
-        {/*    }}*/}
-        {/*  </CatListContext.Consumer>*/}
-        {/*</CatListProvider>*/}
       </div>
     ) : null;
     //@@viewOff:render

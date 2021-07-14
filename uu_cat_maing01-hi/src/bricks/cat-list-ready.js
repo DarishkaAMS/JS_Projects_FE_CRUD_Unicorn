@@ -1,12 +1,13 @@
 //@@viewOn:imports
 import UU5 from "uu5g04";
 import Uu5Tiles from "uu5tilesg02";
-import { createVisualComponent, useContext } from "uu5g04-hooks";
+import { createVisualComponent, useContext, useRef } from "uu5g04-hooks";
 import Config from "./config/config";
 
 import CatItem from "../bricks/cat-item";
 import CatListContext, { useCatList } from "../context/cat-list-context";
 import CatListProvider from "../bricks/cat-list-provider";
+import CatDeleteConfirmation from "./cat-modal";
 
 //@@viewOff:imports
 
@@ -30,7 +31,19 @@ export const CatListReady = createVisualComponent({
 
   render(props) {
     //@@viewOn:private
-    const { data } = useCatList();
+
+    const { data, handlerMap } = useCatList();
+    const confirmRef = useRef();
+
+    function openDetail(cat, callback){
+      console.log("cat", cat);
+      console.log("callback", callback);
+      confirmRef.current.open(cat, callback);
+    };
+
+    function openCreateModal() {
+      confirmRef.current.openCreateModal(handlerMap.createItem);
+    };
     //@@viewOff:private
 
     //@@viewOn:interface
@@ -43,6 +56,18 @@ export const CatListReady = createVisualComponent({
 
     return currentNestingLevel ? (
       <div {...attrs}>
+        <UU5.Bricks.Row>
+          <UU5.Bricks.Column colWidth="xs-12 s-12 m-6 l-6 xl-6">
+            <UU5.Bricks.Header content="Cat List" level="3" />
+          </UU5.Bricks.Column>
+          <UU5.Bricks.Column colWidth="xs-12 s-12 m-6 l-6 xl-6">
+              <UU5.Bricks.Button colorSchema="green" onClick={openCreateModal}>
+                <UU5.Bricks.Icon icon="uu5-plus" />
+                Create
+              </UU5.Bricks.Button>
+          </UU5.Bricks.Column>
+        </UU5.Bricks.Row>
+
         <div><h1> My Cats Post </h1></div>
         {UU5.Utils.Content.getChildren(props.children, props, STATICS)}
         {/*{console.log(data)}*/}
@@ -56,9 +81,11 @@ export const CatListReady = createVisualComponent({
             tileSpacing={8}
             rowSpacing={8}
           >
-            {CatItem}
+            {/*{CatItem}*/}
+            <CatItem openDetail={ openDetail } />
           </Uu5Tiles.Grid>
         )}
+        <CatDeleteConfirmation ref={ confirmRef } />
       </div>
     ) : null;
     //@@viewOff:render

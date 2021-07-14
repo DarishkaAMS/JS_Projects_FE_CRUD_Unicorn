@@ -22,13 +22,13 @@ const CLASS_NAMES = {
     max-width: 624px;
     margin: 0 auto;
     text-align: center;
-  
+
     ${UU5.Utils.ScreenSize.getMinMediaQueries("s", `text-align: left;`)}
-  
+
     .uu5-bricks-header {
       margin-top: 8px;
     }
-    
+
     .plus4u5-bricks-user-photo {
       margin: 0 auto;
     }
@@ -77,6 +77,11 @@ export const Home = createVisualComponent({
         <WelcomeRow textPadding="8px" icon="mdi-server">
           <UU5.Bricks.Lsi lsi={Lsi.auth.serverSide} />
         </WelcomeRow>
+        <UU5.Bricks.Section
+          header='<uu5string/><UuContentKit.Bricks.BlockInfo icon="mdi-format-paint" content="Dynamic Rendering TRYOUT" />'
+          content='<uu5string/><UuSpecialistWtm.Bricks.WorkerOverviewByTime panelHeader="${userName} overview by time" groupByCategory="true" />'
+          footer='<uu5string/><UuContentKit.Bricks.BlockSuccess content="It is working!" />'
+        />
       </div>
     );
     //@@viewOff:render

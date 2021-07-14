@@ -1,6 +1,6 @@
 //@@viewOn:imports
 import UU5 from "uu5g04";
-import { createVisualComponent, useCall, useEffect, useState, useContext, useRef } from "uu5g04-hooks";
+import { createVisualComponent, createVisualComponentWithRef, useImperativeHandle, useCall, useEffect, useState, useContext, useRef } from "uu5g04-hooks";
 import Config from "./config/config";
 import Calls from "../calls";
 
@@ -8,9 +8,11 @@ import CatItem from "../bricks/cat-item";
 import CatDetailReady from "../bricks/cat-detail-ready";
 import CatDetailContext, { useCatList } from "../context/cat-detail-context";
 import CatDetailProvider from "../bricks/cat-detail-provider";
+import { useCatDetail } from "../context/cat-detail-context";
 
 //@@viewOff:imports
 
+// <<< WITHOUT MODALS >>>
 const STATICS = {
   //@@viewOn:statics
   displayName: Config.TAG + "CatDetails",
@@ -23,8 +25,6 @@ export const CatDetails = createVisualComponent({
 
   //@@viewOn:propTypes
   propTypes: {
-    onSave: UU5.PropTypes.func,
-    onCancel: UU5.PropTypes.func,
   },
   //@@viewOn:propTypes
 
@@ -50,11 +50,18 @@ export const CatDetails = createVisualComponent({
     const currentNestingLevel = UU5.Utils.NestingLevel.getNestingLevel(props, STATICS);
 
     return currentNestingLevel ? (
+      // For Modal
       <div {...attrs}>
-        <CatDetailProvider id={props?.params?.id}>
+        <CatDetailProvider id={props?.id}>
           <CatDetailReady/>
         </CatDetailProvider>
       </div>
+      // For Separate Page
+      // <div {...attrs}>
+      //   <CatDetailProvider id={props?.params?.id}>
+      //     <CatDetailReady/>
+      //   </CatDetailProvider>
+      // </div>
     ) : null;
     //@@viewOff:render
   },

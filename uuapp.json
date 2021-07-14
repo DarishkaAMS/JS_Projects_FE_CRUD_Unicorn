@@ -179,6 +179,51 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UuCat.Bricks.CatDetailReady />"
+      },
+      {
+        "code": "UuCat.Bricks.CatDeleteComponent",
+        "name": "CatDeleteComponent",
+        "tagList": [
+          "UuCat",
+          "Bricks",
+          "CatDeleteComponent"
+        ],
+        "docCode": "UuCatBricksCatDeleteComponent",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuCat.Bricks.CatDeleteComponent />"
+      },
+      {
+        "code": "UuCat.Bricks.CatDeleteConfirmationBody",
+        "name": "CatDeleteConfirmationBody",
+        "tagList": [
+          "UuCat",
+          "Bricks",
+          "CatDeleteConfirmationBody"
+        ],
+        "docCode": "UuCatBricksCatDeleteConfirmationBody",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuCat.Bricks.CatDeleteConfirmationBody />"
+      },
+      {
+        "code": "UuCat.Bricks.CreateCatModalForm",
+        "name": "CreateCatModalForm",
+        "tagList": [
+          "UuCat",
+          "Bricks",
+          "CreateCatModalForm"
+        ],
+        "docCode": "UuCatBricksCreateCatModalForm",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuCat.Bricks.CreateCatModalForm />"
       }
     ]
   },
