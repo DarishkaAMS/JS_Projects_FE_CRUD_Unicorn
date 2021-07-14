@@ -73,6 +73,112 @@
         "imageUri": "",
         "uuEccReady": false,
         "template": "<UuCat.Routes.CatDetails />"
+      },
+      {
+        "code": "UuCat.Bricks.CatListProvider",
+        "name": "CatListProvider",
+        "tagList": [
+          "UuCat",
+          "Bricks",
+          "CatListProvider"
+        ],
+        "docCode": "UuCatBricksCatListProvider",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuCat.Bricks.CatListProvider />"
+      },
+      {
+        "code": "UuCat.Context.CatListContext",
+        "name": "CatListContext",
+        "tagList": [
+          "UuCat",
+          "Context",
+          "CatListContext"
+        ],
+        "docCode": "UuCatContextCatListContext",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuCat.Context.CatListContext />"
+      },
+      {
+        "code": "UuCat.Bricks.CatListReady",
+        "name": "CatListReady",
+        "tagList": [
+          "UuCat",
+          "Bricks",
+          "CatListReady"
+        ],
+        "docCode": "UuCatBricksCatListReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuCat.Bricks.CatListReady />"
+      },
+      {
+        "code": "UuCat.Context.CatDetail.Context",
+        "name": "Context",
+        "tagList": [
+          "UuCat",
+          "Context",
+          "CatDetail",
+          "Context"
+        ],
+        "docCode": "UuCatContextCatDetailContext",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuCat.Context.CatDetail.Context />"
+      },
+      {
+        "code": "UuCat.Context.CatDetailContext",
+        "name": "CatDetailContext",
+        "tagList": [
+          "UuCat",
+          "Context",
+          "CatDetailContext"
+        ],
+        "docCode": "UuCatContextCatDetailContext",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuCat.Context.CatDetailContext />"
+      },
+      {
+        "code": "UuCat.Bricks.CatDetailProvider",
+        "name": "CatDetailProvider",
+        "tagList": [
+          "UuCat",
+          "Bricks",
+          "CatDetailProvider"
+        ],
+        "docCode": "UuCatBricksCatDetailProvider",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuCat.Bricks.CatDetailProvider />"
+      },
+      {
+        "code": "UuCat.Bricks.CatDetailReady",
+        "name": "CatDetailReady",
+        "tagList": [
+          "UuCat",
+          "Bricks",
+          "CatDetailReady"
+        ],
+        "docCode": "UuCatBricksCatDetailReady",
+        "desc": "",
+        "icon": "",
+        "imageUri": "",
+        "uuEccReady": false,
+        "template": "<UuCat.Bricks.CatDetailReady />"
       }
     ]
   },

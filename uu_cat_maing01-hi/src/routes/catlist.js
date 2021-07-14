@@ -1,16 +1,18 @@
 //@@viewOn:imports
 import UU5 from "uu5g04";
 import Uu5Tiles from "uu5tilesg02";
-
-import { createVisualComponent, useEffect, useCall, useDataList } from "uu5g04-hooks";
+import { createVisualComponent, useContext } from "uu5g04-hooks";
 import Config from "./config/config";
-import Calls from "../calls";
+
 import CatItem from "../bricks/cat-item";
+import CatListReady from "../bricks/cat-list-ready";
+import CatListContext from "../context/cat-list-context";
+import CatListProvider from "../bricks/cat-list-provider";
 //@@viewOff:imports
 
 const STATICS = {
   //@@viewOn:statics
-  displayName: Config.TAG + "Catlist",
+  displayName: Config.TAG + "CatList",
   nestingLevel: "bigBoxCollection",
   //@@viewOff:statics
 };
@@ -28,18 +30,7 @@ export const CatList = createVisualComponent({
 
   render(props) {
     //@@viewOn:private
-    const dataListResult = useDataList({
-      handlerMap: {
-        load: Calls.listCats,
-        createItem: Calls.createCat,
-      },
-      itemHandlerMap: {
-        load: Calls.getCat,
-        update: Calls.updateCat,
-        delete: Calls.deleteCat
-      }
-    });
-    const { state, data, newData, errorData, pendingData, handlerMap } = dataListResult;
+    const { value } = useContext(CatListContext);
 
     //@@viewOff:private
 
@@ -47,37 +38,41 @@ export const CatList = createVisualComponent({
     //@@viewOff:interface
 
     //@@viewOn:render
+
     const className = Config.Css.css``;
     const attrs = UU5.Common.VisualComponent.getAttrs(props, className);
     const currentNestingLevel = UU5.Utils.NestingLevel.getNestingLevel(props, STATICS);
 
-    switch (state) {
-      case "error":
-        return (<UU5.Common.Error errorData={errorData}/>);
-      case "ready":
-        return (
-          <Uu5Tiles.Grid
-            data={data}
-            tileHeight="auto"
-            tileMinWidth={200}
-            tileMaxWidth={400}
-            tileSpacing={8}
-            rowSpacing={8}
-          >
-            {CatItem}
-          </Uu5Tiles.Grid>
-        );
-      default: return (<UU5.Bricks.Loader/>)
-    }
-    // return currentNestingLevel ? (
-    //   <div {...attrs}>
-    //     <div>Visual Component {STATICS.displayName}</div>
-    //     {UU5.Utils.Content.getChildren(props.children, props, STATICS)}
-    //     {data?.itemList?.map(
-    //       (item, i) => <CatItem cat = {item} key={i} />
-    //     )}
-    //   </div>
-    // ) : null;
+    return currentNestingLevel ? (
+      <div {...attrs}>
+        <CatListProvider>
+          <CatListReady />
+        </CatListProvider>
+
+        {/*<CatListProvider>*/}
+        {/*  <CatListContext.Consumer>*/}
+        {/*    {({ state, data = {}, newData, errorData, pendingData, handlerMap }) => {*/}
+        {/*      console.log("data", data);*/}
+
+        {/*      return (*/}
+        {/*        data && (*/}
+        {/*          <Uu5Tiles.Grid*/}
+        {/*            data={data}*/}
+        {/*            tileHeight="auto"*/}
+        {/*            tileMinWidth={200}*/}
+        {/*            tileMaxWidth={400}*/}
+        {/*            tileSpacing={8}*/}
+        {/*            rowSpacing={8}*/}
+        {/*          >*/}
+        {/*            {CatItem}*/}
+        {/*          </Uu5Tiles.Grid>*/}
+        {/*        )*/}
+        {/*      );*/}
+        {/*    }}*/}
+        {/*  </CatListContext.Consumer>*/}
+        {/*</CatListProvider>*/}
+      </div>
+    ) : null;
     //@@viewOff:render
   },
 });

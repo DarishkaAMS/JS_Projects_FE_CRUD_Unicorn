@@ -85,7 +85,7 @@ export const CatItem = createVisualComponent({
     }, [])
 
     const goToDetailPage = useCallback(() => {
-      UU5.Environment.setRoute(<CatDetails data={data}/>, { url: {useCase: "catDetails", params: {id: data.id} }});
+      UU5.Environment.setRoute("CatDetails", {id: data.id});
     }, []);
 
   // render({ cat, colorSchema, onDetail, onUpdate, onDelete }) {
@@ -115,7 +115,8 @@ export const CatItem = createVisualComponent({
     return currentNestingLevel ? (
       <div {...attrs}>
         <UU5.Bricks.Header level="5" content={data.name}/>
-        <i> <UU5.Bricks.Header level="5" content={data.text}/> </i>
+        <i> <UU5.Bricks.Header style={{ backgroundColor: UU5.Environment.colors.blue.c100 }} level="5" content={data.text}/> </i>
+        <small> <UU5.Bricks.Header level="5" content={data.color} colorSchema= "blue"/> </small>
         <UU5.Bricks.Button colorSchema="red" text="Delete" onClick={handleCatDelete}>
           <UU5.Bricks.Icon icon="fa-trash" /> Delete
         </UU5.Bricks.Button>

@@ -7,7 +7,7 @@ import CatInstanceContext from "./cat-instance-context";
 
 const CatInstanceProvider = createComponent({
   //@@viewOn:statics
-  displayName: Config.TAG + "CatInstanceProvider",
+  displayName: Config.TAG + "CatInstanceContext",
   //@@viewOff:statics
 
   render({ children }) {
