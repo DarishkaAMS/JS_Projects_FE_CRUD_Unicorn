@@ -1,7 +1,7 @@
 //@@viewOn:imports
 import UU5 from "uu5g04";
 import "uu5g04-bricks";
-import { createVisualComponent } from "uu5g04-hooks";
+import { createVisualComponent, useEffect } from "uu5g04-hooks";
 import Plus4U5 from "uu_plus4u5g01";
 import "uu_plus4u5g01-app";
 
@@ -54,6 +54,13 @@ export const Left = createVisualComponent({
     ];
     //@@viewOff:private
 
+    const { useCase } = UU5.Common.Url.parse(window.location.href);
+    useEffect(() => {
+      if (useCase !== "about") {
+        const find = items.find((item) => item.href === useCase);
+        props.setActiveItemId(find.id);
+      }
+    }, []);
     //@@viewOn:interface
     //@@viewOff:interface
 
@@ -64,11 +71,11 @@ export const Left = createVisualComponent({
         logoProps={{
           backgroundColor: UU5.Environment.colors.blue.c700,
           backgroundColorTo: UU5.Environment.colors.blue.c500,
-          title: "uuCat",
+          title: "uuJokes",
           companyLogo: Plus4U5.Environment.basePath + "assets/img/unicorn-logo.svg",
           generation: "1",
         }}
-        aboutItems={[{ content: <UU5.Bricks.Lsi lsi={Lsi.left.about} />, href: "about" }]}
+        aboutItems={[{ content: <UU5.Bricks.Lsi lsi={Lsi.left.about} />, href: "about", id: "aboutItems" }]}
         helpHref={null}
       >
         <Plus4U5.App.MenuTree
